@@ -94,27 +94,28 @@ class App extends Component {
         </StyledList>
         </div>
         <StyledGrid innerRef={(gridElementRef) => { this.gridElementRef = gridElementRef}}>
-          { parsedLogArray.map(entry => (
-            <React.Fragment key={entry.idx}>
-              <div>{entry.date} {entry.time}</div>
-              <div>{entry.severity}</div>
-              <LogEntryMessage>
-                <VisibilitySensor
-                  onChange={this.setLatestViewed(entry.idx)}
-                  intervalDelay={7000}
-                  scrollCheck
-                  scrollDelay={10}
-                  resizeCheck
-                  containment={this.gridElementRef} />
-                {entry.message}
-              </LogEntryMessage>
-            </React.Fragment>
-          ))
-          }
+          { parsedLogArray.map(this.renderLogEntry)}
         </StyledGrid>
       </StyledApp>
     );
   }
+
+  renderLogEntry = (entry) => (
+    <React.Fragment key={entry.idx}>
+      <div>{entry.date} {entry.time}</div>
+      <div>{entry.severity}</div>
+      <LogEntryMessage>
+        <VisibilitySensor
+          onChange={this.setLatestViewed(entry.idx)}
+          intervalDelay={7000}
+          scrollCheck
+          scrollDelay={10}
+          resizeCheck
+          containment={this.gridElementRef} />
+        {entry.message}
+      </LogEntryMessage>
+    </React.Fragment>
+  )
 }
 
 export default App;
