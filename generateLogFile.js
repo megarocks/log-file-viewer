@@ -2,10 +2,14 @@ const fs = require('fs')
 const moment = require('moment')
 const random = require('random-js')()
 
-const messages = ['Error Message', 'Warning Message', 'Info Message']
+const messages = [
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  'Duis aute irure dolor in reprehenderit in voluptate',
+  'Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?'
+]
 const severityLeveles = ['ERROR', 'WARNING', 'INFO']
 
-const logRecordMoment = moment('2017-01-01')
+const logRecordMoment = moment('2018-01-01')
 const now = moment()
 
 const logRecords = []
