@@ -78,7 +78,7 @@ class App extends Component {
       }
       return accumulator
     }, new Map())
-    this.setState({ statistics })
+    this.setState({ statistics, latestViewedIdx: idx })
   }
 
   render() {
