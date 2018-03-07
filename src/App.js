@@ -87,14 +87,14 @@ class App extends Component {
     return (
       <StyledApp>
         <div className="App__statistics">
-        <StyledList>
-          <StyledListItem>INFO: {statistics.get('INFO')}</StyledListItem>
-          <StyledListItem>WARNING: {statistics.get('WARNING')}</StyledListItem>
-          <StyledListItem>ERROR: {statistics.get('ERROR')}</StyledListItem>
-        </StyledList>
+          <StyledList>
+            <StyledListItem>INFO: {statistics.get('INFO')}</StyledListItem>
+            <StyledListItem>WARNING: {statistics.get('WARNING')}</StyledListItem>
+            <StyledListItem>ERROR: {statistics.get('ERROR')}</StyledListItem>
+          </StyledList>
         </div>
-        <StyledGrid innerRef={(gridElementRef) => { this.gridElementRef = gridElementRef}}>
-          { parsedLogArray.map(this.renderLogEntry)}
+        <StyledGrid innerRef={(gridElementRef) => { this.gridElementRef = gridElementRef }}>
+          {parsedLogArray.map(this.renderLogEntry)}
         </StyledGrid>
       </StyledApp>
     );
@@ -109,7 +109,7 @@ class App extends Component {
           onChange={this.setLatestViewed(entry.idx)}
           intervalDelay={7000}
           scrollCheck
-          scrollDelay={10}
+          scrollDelay={100}
           resizeCheck
           containment={this.gridElementRef} />
         {entry.message}
